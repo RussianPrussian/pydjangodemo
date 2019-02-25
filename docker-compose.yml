@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  pydemodb:
+    build:
+      context: ./db
+      dockerfile: Dockerfile-postgres
+    image: pydemo:lts
+    volumes:
+    - ./db/db-data:/var/lib/postgresql/data
+    ports:
+    - "5432:5432"
+    env_file: ./db/db.env
+    hostname: pydemodb
+  pydemobackend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: russianprussian/pydjangodemo
+    restart: always
+    ports:
+    - "8000:8000"
+    hostname: pydemobackend

@@ -1,0 +1,14 @@
+version: '3'
+services:
+  pydemo:
+    build:
+       context: .
+       dockerfile: Dockerfile-postgres
+    image: pydemo:lts
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    env_file: db.env
+volumes:
+  db-data:

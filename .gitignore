@@ -1,0 +1,8 @@
+.idea/**
+db/db-data/pg*/**
+db/db-data/post*/**
+db/db-data/base
+db/db-data/global
+db/db-data/*
+
+!db/db-data/.gitkeep
